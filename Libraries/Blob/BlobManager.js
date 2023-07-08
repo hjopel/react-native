@@ -12,6 +12,8 @@ import type {BlobCollector, BlobData, BlobOptions} from './BlobTypes';
 
 import NativeBlobModule from './NativeBlobModule';
 import invariant from 'invariant';
+import {getBlobForArrayBuffer} from 'react-native-blob-jsi-helper';
+
 
 const Blob = require('./Blob');
 const BlobRegistry = require('./BlobRegistry');
@@ -70,9 +72,7 @@ class BlobManager {
         part instanceof ArrayBuffer ||
         (global.ArrayBufferView && part instanceof global.ArrayBufferView)
       ) {
-        throw new Error(
-          "Creating blobs from 'ArrayBuffer' and 'ArrayBufferView' are not supported",
-        );
+        return getBlobForArrayBuffer(part);
       }
       if (part instanceof Blob) {
         return {
