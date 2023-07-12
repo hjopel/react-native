@@ -72,11 +72,7 @@ class BlobManager {
         part instanceof ArrayBuffer ||
         (global.ArrayBufferView && part instanceof global.ArrayBufferView)
       ) {
-        console.log('aaahhh why are we here');
-         throw new Error(
-          "Creating blobs from 'ArrayBuffer' and 'ArrayBufferView' are not supported",
-        );
-        // return getBlobForArrayBuffer(part);
+        return getBlobForArrayBuffer(part);
       }
       if (part instanceof Blob) {
         return {
