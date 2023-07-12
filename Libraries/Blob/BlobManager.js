@@ -12,7 +12,7 @@ import type {BlobCollector, BlobData, BlobOptions} from './BlobTypes';
 
 import NativeBlobModule from './NativeBlobModule';
 import invariant from 'invariant';
-// import {getBlobForArrayBuffer} from 'react-native-blob-jsi-helper';
+import {getBlobForArrayBuffer} from 'react-native-blob-jsi-helper';
 
 
 const Blob = require('./Blob');
